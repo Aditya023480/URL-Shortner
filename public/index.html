@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">URL SHORTNER</p>
+          <h1>Turn long links into short, shareable URLs.</h1>
+          <p class="lede">
+            Create a custom short link in seconds, copy it instantly, and keep a
+            clean history of what you generated.
+          </p>
+          <div class="hero-points">
+            <span>Fast create flow</span>
+            <span>Custom slugs</span>
+            <span>Instant copy</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <form id="shorten-form" class="form-card">
+            <div class="field">
+              <label for="url">Original URL</label>
+              <input
+                id="url"
+                name="url"
+                type="url"
+                placeholder="https://example.com/very/long/link"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="custom">Custom slug</label>
+              <input
+                id="custom"
+                name="custom"
+                type="text"
+                placeholder="launch"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <button id="submit-btn" type="submit">Create short URL</button>
+
+            <p id="status" class="status" aria-live="polite"></p>
+          </form>
+
+          <div class="result-card" id="result-card" hidden>
+            <div>
+              <p class="result-label">Your short link</p>
+              <a id="result-link" href="#" target="_blank" rel="noreferrer"></a>
+            </div>
+            <button id="copy-btn" type="button">Copy link</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-wrap">
+        <div class="section-head">
+          <h2>Recent links</h2>
+          <p>Saved locally in this browser.</p>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <template id="history-item-template">
+      <article class="history-item">
+        <div>
+          <p class="history-url"></p>
+          <p class="history-meta"></p>
+        </div>
+        <div class="history-actions">
+          <a class="visit-link" href="#" target="_blank" rel="noreferrer">Open</a>
+          <button class="mini-copy" type="button">Copy</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
