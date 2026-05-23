@@ -2,8 +2,9 @@ import { createURLservice , shortURL } from "../services/url.service.js";
 
 const createURLcontroller = async (req , res) => {
     const newurl = await createURLservice(req.body);
+    const publicBaseUrl = process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get('host')}`;
     return res.json({
-        newURL:`localhost:3000/${newurl}`
+        newURL:`${publicBaseUrl}/${newurl}`
     })
 }
 

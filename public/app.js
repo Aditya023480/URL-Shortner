@@ -85,7 +85,7 @@ historyEl.addEventListener("click", async (event) => {
 });
 
 function getApiBase() {
-  return "http://localhost:3000";
+  return window.__API_BASE_URL__ || "http://localhost:3000";
 }
 
 function normalizeShortUrl(value) {
